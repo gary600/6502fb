@@ -3389,7 +3389,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 720a07a6-8f34-42d2-b301-4f43ee849ba9)
   )
-  (hierarchical_label "Row" (shape output) (at 261.62 69.85 0) (fields_autoplaced)
+  (hierarchical_label "Row[0..9]" (shape output) (at 261.62 69.85 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 8bd70d35-6e09-47b3-a53f-8f08dec96ee2)
   )
@@ -3397,7 +3397,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 91ef0abd-511a-4f68-aa06-307193e51547)
   )
-  (hierarchical_label "Col" (shape output) (at 133.35 71.12 0) (fields_autoplaced)
+  (hierarchical_label "Col[0..9]" (shape output) (at 133.35 71.12 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid d3886ede-3a97-4f66-a5cb-24665d767d42)
   )
@@ -4703,8 +4703,8 @@
     (pin "5" (uuid b6ec0d20-2277-4f91-9c36-02b9be2d3e98))
     (pin "6" (uuid 055014e9-2ed0-47b3-9f38-f108158f0c3a))
     (pin "8" (uuid b5e15ce1-5eae-4f61-9339-d5cb39890743))
-    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7243))
-    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a60))
+    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7244))
+    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a61))
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
@@ -5569,8 +5569,8 @@
     (pin "5" (uuid fe439591-c061-40fa-8517-9f4a98cb5271))
     (pin "6" (uuid f4b2fdca-bc06-4db8-9fc6-807760e9d40a))
     (pin "8" (uuid 29c9bfbd-9660-4a29-a978-1baa8c6c19a8))
-    (pin "14" (uuid 24e416f3-b774-478f-b4fd-458c03a4251f))
-    (pin "7" (uuid 168d3629-6b66-4095-a4d8-51d5a14b31e9))
+    (pin "14" (uuid 24e416f3-b774-478f-b4fd-458c03a42520))
+    (pin "7" (uuid 168d3629-6b66-4095-a4d8-51d5a14b31ea))
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
@@ -5632,8 +5632,8 @@
     (pin "5" (uuid c2b3ff28-1d53-4145-9422-69471c822894))
     (pin "6" (uuid ba2e1b72-b6e5-4d8e-b42c-f428998303af))
     (pin "8" (uuid 3daa58a4-11c4-41ec-a1b5-b17a1254a7f0))
-    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7243))
-    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a60))
+    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7245))
+    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a62))
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
@@ -6256,8 +6256,8 @@
     (pin "5" (uuid b9da1e41-fe9c-4419-bdec-0652eef64f65))
     (pin "6" (uuid 4c2ba025-95ee-4f12-869a-a75407b52028))
     (pin "8" (uuid 99e2d973-18ad-4c26-99ea-b2a0e0daaff3))
-    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7243))
-    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a60))
+    (pin "14" (uuid 40bc744e-f3d1-4ad9-acbb-b67b094f7246))
+    (pin "7" (uuid aab21fbc-1b0e-4353-a834-fde34eaf8a63))
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
