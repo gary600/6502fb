@@ -25,13 +25,13 @@ module Top (
 	xor u6a(U32_Pad4, AddrPhys[14], AddrPhys[15]);
 	nand u32b(EnableCPU_n, U32_Pad4, J2_Pin2);
 
-	logic U35_Pad6;
 	logic WriteMem;
-	nor u35b(U35_Pad6, EnableCPU_n, CpuClock_n, CpuWe_n);
-	xor u6c(WriteMem, U35_Pad6, 1'b1);
+	nor u35b(WriteMem, EnableCPU_n, CpuClock_n, CpuWe_n);
 
 	logic WriteReg_n;
-	nor u35c(WriteReg_n, EnableCPU_n, RegSel_n, CpuWe_n);
+	logic U35_Pad6;
+	nor u35c(U35_Pad6, EnableCPU_n, RegSel_n, CpuWe_n);
+	xor u6c(WriteReg_n, U35_Pad6, 1'b1);
 
 	logic ConfigReg_Clock;
 	xor u6b(ConfigReg_Clock, CpuClock_n, 1'b1);
