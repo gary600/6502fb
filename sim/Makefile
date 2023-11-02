@@ -1,19 +1,13 @@
+ICARUS ?= iverilog
+ICARUS_OPTS += -g2005-sv
 
-SIM ?= icarus
-# SIM ?= verilator
-TOPLEVEL_LANG ?= verilog
+SV_FILES = $(wildcard *.sv)
 
-VERILOG_SOURCES += $(PWD)/main.sv
-# use VHDL_SOURCES for VHDL files
+.PHONY: all
+all: sim
 
-# EXTRA_ARGS += --trace --trace-structs
-# EXTRA_ARGS += -Isrc/
+sim: $(SV_FILES)
+	$(ICARUS) $(ICARUS_OPTS) -o sim $(SV_FILES)
 
-# TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
-TOPLEVEL = Top
-
-# MODULE is the basename of the Python test file
-MODULE = test
-
-# include cocotb's make rules to take care of the simulator setup
-include $(shell cocotb-config --makefiles)/Makefile.sim
+vga.vcd: sim
+	./sim

@@ -4,3 +4,11 @@
 *.kicad_sch-bak
 6502gpu-backups/
 _autosave-*
+
+# BOM / export files
+6502gpu.csv
+6502gpu.xml
+
+# sim outputs
+sim/sim
+sim/vga.vcd

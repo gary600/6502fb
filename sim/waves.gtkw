@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Thu Nov  2 04:33:34 2023
+[*]
+[dumpfile] "/mnt/c/Users/Gary/Documents/6502gpu/sim/vga.vcd"
+[dumpfile_mtime] "Thu Nov  2 04:30:26 2023"
+[dumpfile_size] 66762188
+[savefile] "/mnt/c/Users/Gary/Documents/6502gpu/sim/waves.gtkw"
+[timestart] 16681460000
+[size] 1910 1024
+[pos] -1 -1
+*-18.000000 16682380140 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] FbTest.
+[treeopen] FbTest.fb.
+[sst_width] 276
+[signals_width] 208
+[sst_expanded] 1
+[sst_vpaned_height] 313
+@24
+FbTest.fb.Col[9:0]
+FbTest.fb.Row[9:0]
+@28
+FbTest.fb.HBlank
+FbTest.fb.HSync
+FbTest.fb.VBlank
+@29
+FbTest.fb.VSync
+[pattern_trace] 1
+[pattern_trace] 0
