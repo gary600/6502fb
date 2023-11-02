@@ -3,3 +3,4 @@
 *.lck
 *.kicad_sch-bak
 6502gpu-backups/
+_autosave-*

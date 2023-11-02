@@ -403,6 +403,57 @@
         )
       )
     )
+    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
+      (property "Reference" "C" (at 0.635 2.54 0)
+        (effects (font (size 1.27 1.27)) (justify left))
+      )
+      (property "Value" "C" (at 0.635 -2.54 0)
+        (effects (font (size 1.27 1.27)) (justify left))
+      )
+      (property "Footprint" "" (at 0.9652 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "cap capacitor" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Unpolarized capacitor" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "C_*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "C_0_1"
+        (polyline
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
+          (stroke (width 0.508) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
+          (stroke (width 0.508) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "C_1_1"
+        (pin passive line (at 0 3.81 270) (length 2.794)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 0 -3.81 90) (length 2.794)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "2" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
     (symbol "Memory_RAM:KM62256CLP" (in_bom yes) (on_board yes)
       (property "Reference" "U" (at -10.16 20.955 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
@@ -3019,7 +3070,7 @@
           (reference "#PWR03") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR024") (unit 1)
         )
       )
     )
@@ -3028,13 +3079,13 @@
   (symbol (lib_id "74xx:74HC00") (at 25.4 107.95 0) (unit 4)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 193f96b8-c0fd-4485-8932-5a2928949c1a)
-    (property "Reference" "U7" (at 25.3917 99.06 0)
+    (property "Reference" "U4" (at 25.3917 99.06 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC00" (at 25.3917 101.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 25.4 107.95 0)
+    (property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" (at 25.4 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74hc00" (at 25.4 107.95 0)
@@ -3057,7 +3108,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U7") (unit 4)
+          (reference "U4") (unit 4)
         )
       )
     )
@@ -3069,10 +3120,10 @@
     (property "Reference" "U1" (at 160.9441 13.97 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "62256" (at 160.9441 16.51 0)
+    (property "Value" "AS7C256A-10" (at 160.9441 16.51 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_DIP:DIP-28_W15.24mm" (at 158.75 41.91 0)
+    (property "Footprint" "Package_SO:TSOP-I-28_11.8x8mm_P0.55mm" (at 158.75 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.futurlec.com/Datasheet/Memory/62256.pdf" (at 158.75 41.91 0)
@@ -3112,7 +3163,7 @@
           (reference "U1") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U1") (unit 1)
+          (reference "U7") (unit 1)
         )
       )
     )
@@ -3121,7 +3172,7 @@
   (symbol (lib_id "power:GND") (at 97.79 102.87 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1a7ac7ce-14dc-41c5-af5f-9e3f63ffe949)
-    (property "Reference" "#PWR015" (at 97.79 109.22 0)
+    (property "Reference" "#PWR020" (at 97.79 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 97.79 107.95 0)
@@ -3137,7 +3188,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR020") (unit 1)
         )
       )
     )
@@ -3146,13 +3197,13 @@
   (symbol (lib_id "custom:74CBT16390") (at 215.9 91.44 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2226731f-cf23-48db-9fbf-b8468e0c8222)
-    (property "Reference" "U33" (at 212.4359 43.18 0)
+    (property "Reference" "U9" (at 212.4359 43.18 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "74CBT16390" (at 212.4359 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 215.9 91.44 0)
+    (property "Footprint" "Package_SO:TSSOP-56_6.1x14mm_P0.5mm" (at 215.9 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 215.9 91.44 0)
@@ -3217,7 +3268,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U33") (unit 1)
+          (reference "U9") (unit 1)
         )
       )
     )
@@ -3226,7 +3277,7 @@
   (symbol (lib_id "power:GND") (at 107.95 195.58 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 33c2f4f9-aaea-4935-85dd-df5555fb71a9)
-    (property "Reference" "#PWR010" (at 107.95 201.93 0)
+    (property "Reference" "#PWR022" (at 107.95 201.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 107.95 200.66 0)
@@ -3242,7 +3293,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR022") (unit 1)
         )
       )
     )
@@ -3251,7 +3302,7 @@
   (symbol (lib_id "power:GND") (at 107.95 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3425aa42-e07c-4991-a295-0f0ab958784b)
-    (property "Reference" "#PWR011" (at 107.95 158.75 0)
+    (property "Reference" "#PWR021" (at 107.95 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 111.76 153.67 0)
@@ -3267,7 +3318,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR021") (unit 1)
         )
       )
     )
@@ -3276,7 +3327,7 @@
   (symbol (lib_id "power:+5V") (at 214.63 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 35eb76e5-946e-437e-9fdb-dbd37350f03d)
-    (property "Reference" "#PWR057" (at 214.63 49.53 0)
+    (property "Reference" "#PWR029" (at 214.63 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 214.63 40.64 0)
@@ -3292,7 +3343,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR057") (unit 1)
+          (reference "#PWR029") (unit 1)
         )
       )
     )
@@ -3301,13 +3352,13 @@
   (symbol (lib_id "74xx:74HC00") (at 45.72 72.39 0) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3a8567d9-fee3-480f-8559-5dd28978b9dd)
-    (property "Reference" "U7" (at 45.7117 63.5 0)
+    (property "Reference" "U4" (at 45.7117 63.5 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC00" (at 45.7117 66.04 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 45.72 72.39 0)
+    (property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" (at 45.72 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74hc00" (at 45.72 72.39 0)
@@ -3330,35 +3381,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U7") (unit 3)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:+5V") (at 24.13 120.65 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 3b0961b0-1260-4eda-bb81-8752a0437ecf)
-    (property "Reference" "#PWR02" (at 24.13 124.46 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+5V" (at 24.13 115.57 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 24.13 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 24.13 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid be3c7182-e60a-4eee-a2e7-cacffd2fe13d))
-    (instances
-      (project "6502gpu"
-        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
-          (reference "#PWR02") (unit 1)
-        )
-        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR021") (unit 1)
+          (reference "U4") (unit 3)
         )
       )
     )
@@ -3367,13 +3390,13 @@
   (symbol (lib_id "74xx:74HC00") (at 29.21 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4242f7ac-3483-4306-86bd-fb6d93a1a351)
-    (property "Reference" "U7" (at 29.2017 72.39 0)
+    (property "Reference" "U4" (at 29.2017 72.39 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC00" (at 29.2017 74.93 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 29.21 81.28 0)
+    (property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" (at 29.21 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74hc00" (at 29.21 81.28 0)
@@ -3396,7 +3419,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U7") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -3405,7 +3428,7 @@
   (symbol (lib_id "power:GND") (at 67.31 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 46937833-6446-4b43-8587-c3be69d42f52)
-    (property "Reference" "#PWR06" (at 67.31 66.04 0)
+    (property "Reference" "#PWR013" (at 67.31 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 67.31 64.77 0)
@@ -3421,7 +3444,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR013") (unit 1)
         )
       )
     )
@@ -3430,7 +3453,7 @@
   (symbol (lib_id "power:GND") (at 214.63 137.16 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 55c5c7f6-99af-4062-8b06-c9f47d5dd9f7)
-    (property "Reference" "#PWR077" (at 214.63 143.51 0)
+    (property "Reference" "#PWR030" (at 214.63 143.51 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 214.63 142.24 0)
@@ -3446,7 +3469,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR077") (unit 1)
+          (reference "#PWR030") (unit 1)
         )
       )
     )
@@ -3474,7 +3497,110 @@
           (reference "#PWR03") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR028") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 120.65 195.58 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 5a2286cc-a1b6-4510-b7c5-f7fcadab86a0)
+    (property "Reference" "#PWR03" (at 120.65 201.93 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 120.65 200.66 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 120.65 195.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 120.65 195.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 6dc13ca7-aa41-4a0e-bd33-473367e96db0))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR03") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR098") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR060") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR094") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 180.34 54.61 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 5a5f3478-d8fe-44e1-9cff-5855c283e899)
+    (property "Reference" "#PWR02" (at 180.34 58.42 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 180.34 49.53 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 180.34 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 180.34 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7e7b034f-c485-4453-9020-7475f00b34c9))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR02") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR0101") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR059") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR093") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 241.3 133.35 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 5b01d22b-478c-464f-97de-1c83119d74ba)
+    (property "Reference" "C1" (at 245.11 132.08 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "0.1u" (at 245.11 134.62 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" (at 242.2652 137.16 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 241.3 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid e267340e-f9ed-4ae0-be44-dc30769a5130))
+    (pin "2" (uuid 8451db69-a949-4259-86b8-7da20050c12e))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
+          (reference "C1") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "C22") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "C29") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "C34") (unit 1)
         )
       )
     )
@@ -3483,7 +3609,7 @@
   (symbol (lib_id "power:GND") (at 97.79 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5c7a8a58-da63-4c58-af95-3609295740ad)
-    (property "Reference" "#PWR014" (at 97.79 66.04 0)
+    (property "Reference" "#PWR019" (at 97.79 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 101.6 60.96 0)
@@ -3499,7 +3625,41 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR019") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 110.49 102.87 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 624a1634-0080-4dbb-8514-6017d879cdb3)
+    (property "Reference" "#PWR03" (at 110.49 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 110.49 107.95 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 110.49 102.87 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 110.49 102.87 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 221fa996-1451-47c8-a702-552ac84f1d2f))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR03") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR096") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR060") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR094") (unit 1)
         )
       )
     )
@@ -3511,10 +3671,10 @@
     (property "Reference" "U1" (at 160.9441 106.68 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "62256" (at 160.9441 109.22 0)
+    (property "Value" "AS7C256A-10" (at 160.9441 109.22 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_DIP:DIP-28_W15.24mm" (at 158.75 134.62 0)
+    (property "Footprint" "Package_SO:TSOP-I-28_11.8x8mm_P0.55mm" (at 158.75 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.futurlec.com/Datasheet/Memory/62256.pdf" (at 158.75 134.62 0)
@@ -3554,7 +3714,7 @@
           (reference "U1") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U2") (unit 1)
+          (reference "U8") (unit 1)
         )
       )
     )
@@ -3563,13 +3723,13 @@
   (symbol (lib_id "74xx:74HC00") (at 48.26 93.98 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6b8b0082-0006-4717-ac5d-da8ac65e6d4d)
-    (property "Reference" "U7" (at 48.2517 85.09 0)
+    (property "Reference" "U4" (at 48.2517 85.09 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC00" (at 48.2517 87.63 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 48.26 93.98 0)
+    (property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" (at 48.26 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74hc00" (at 48.26 93.98 0)
@@ -3592,7 +3752,41 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U7") (unit 2)
+          (reference "U4") (unit 2)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 241.3 137.16 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 6c2b3966-bb2a-48c1-9e72-07b31bd6820e)
+    (property "Reference" "#PWR03" (at 241.3 143.51 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 241.3 142.24 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 241.3 137.16 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 241.3 137.16 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 218426a8-42ef-4f8b-9a6a-b87901129447))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR03") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR0104") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR060") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR094") (unit 1)
         )
       )
     )
@@ -3601,7 +3795,7 @@
   (symbol (lib_id "power:+5V") (at 91.44 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6c54f8d0-b36e-460c-8c5c-5f447b7dbeb3)
-    (property "Reference" "#PWR08" (at 91.44 113.03 0)
+    (property "Reference" "#PWR017" (at 91.44 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 87.63 107.95 0)
@@ -3617,7 +3811,41 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR017") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 180.34 62.23 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 730c294a-aed2-4a50-bfc6-3197746c94e0)
+    (property "Reference" "#PWR03" (at 180.34 68.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 180.34 67.31 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 180.34 62.23 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 180.34 62.23 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a3a4c0d7-d7a2-44a1-9a26-2c76f73c0952))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR03") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR0102") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR060") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR094") (unit 1)
         )
       )
     )
@@ -3626,13 +3854,13 @@
   (symbol (lib_id "custom:74CBT16390") (at 92.71 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 75ced9ac-0058-4230-b190-63745afc045c)
-    (property "Reference" "U4" (at 91.44 118.11 0)
+    (property "Reference" "U6" (at 91.44 118.11 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "74CBT16390" (at 86.36 120.65 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 92.71 154.94 0)
+    (property "Footprint" "Package_SO:TSSOP-56_6.1x14mm_P0.5mm" (at 92.71 154.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 92.71 154.94 0)
@@ -3697,7 +3925,110 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U4") (unit 1)
+          (reference "U6") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 241.3 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 75cf6367-4413-40e0-843c-52c86353db87)
+    (property "Reference" "#PWR02" (at 241.3 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 241.3 124.46 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 241.3 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 241.3 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 3c67cb1a-bf82-411a-9c8f-baef856cd97c))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR02") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR0103") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR059") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR093") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 180.34 147.32 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7d122079-ab5f-43bc-a7bf-581d35a4d835)
+    (property "Reference" "#PWR02" (at 180.34 151.13 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 180.34 142.24 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 180.34 147.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 180.34 147.32 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 9848aa92-8193-477c-b156-0a1962727b27))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR02") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR099") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR059") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR093") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 120.65 191.77 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 7ec83ab8-6b8e-45e5-92fd-916561c0cfac)
+    (property "Reference" "C1" (at 124.46 190.5 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "0.1u" (at 124.46 193.04 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" (at 121.6152 195.58 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 120.65 191.77 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid eb69cbe1-2b28-4984-99a0-56b8816adabf))
+    (pin "2" (uuid f485d2aa-78df-42b6-a7b7-e5294a1965f0))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
+          (reference "C1") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "C22") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "C29") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "C31") (unit 1)
         )
       )
     )
@@ -3725,7 +4056,7 @@
           (reference "#PWR03") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR026") (unit 1)
         )
       )
     )
@@ -3734,7 +4065,7 @@
   (symbol (lib_id "power:GND") (at 81.28 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 88ec6948-64ea-400e-9fbf-168f2d84b56b)
-    (property "Reference" "#PWR013" (at 81.28 114.3 0)
+    (property "Reference" "#PWR016" (at 81.28 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 77.47 109.22 0)
@@ -3750,7 +4081,41 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR016") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 110.49 95.25 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 89639f66-22a1-4149-9740-3cbb1ca3a746)
+    (property "Reference" "#PWR02" (at 110.49 99.06 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 110.49 90.17 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 110.49 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 110.49 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 542f0d80-0d54-4c04-81ee-cefbb976d73e))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR02") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR095") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR059") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR093") (unit 1)
         )
       )
     )
@@ -3759,13 +4124,13 @@
   (symbol (lib_id "custom:74CBT16390") (at 82.55 62.23 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8ad40dd9-13db-4cbd-9e5f-b90760b7a978)
-    (property "Reference" "U3" (at 86.0141 13.97 0)
+    (property "Reference" "U5" (at 86.0141 13.97 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "74CBT16390" (at 86.0141 16.51 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 82.55 62.23 0)
+    (property "Footprint" "Package_SO:TSSOP-56_6.1x14mm_P0.5mm" (at 82.55 62.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 82.55 62.23 0)
@@ -3830,7 +4195,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U3") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )
@@ -3839,7 +4204,7 @@
   (symbol (lib_id "power:+5V") (at 81.28 16.51 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8dbdb2ce-7f66-45f5-8df6-185aab5b1557)
-    (property "Reference" "#PWR07" (at 81.28 20.32 0)
+    (property "Reference" "#PWR015" (at 81.28 20.32 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 77.47 15.24 0)
@@ -3855,7 +4220,76 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR015") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 180.34 58.42 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 977ecc65-e025-47b5-bc26-c88f381ff8a4)
+    (property "Reference" "C1" (at 184.15 57.15 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "0.1u" (at 184.15 59.69 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" (at 181.3052 62.23 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 180.34 58.42 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ddc4d56d-ba36-4be7-a459-647c341cfc6e))
+    (pin "2" (uuid bb090f7b-232c-4939-97b1-98fa38925cdb))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
+          (reference "C1") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "C22") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "C29") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "C33") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 180.34 154.94 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 9b3f15d9-a468-44a6-b014-1c7e1f49345d)
+    (property "Reference" "#PWR03" (at 180.34 161.29 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 180.34 160.02 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 180.34 154.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 180.34 154.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid c098b23f-a1ed-4e6a-9cc7-b30867b8f976))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR03") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR0100") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR060") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR094") (unit 1)
         )
       )
     )
@@ -3883,7 +4317,7 @@
           (reference "#PWR02") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR025") (unit 1)
         )
       )
     )
@@ -3892,7 +4326,7 @@
   (symbol (lib_id "power:GND") (at 17.78 110.49 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b2002bf3-d853-4dc8-bbad-fd7477fae61e)
-    (property "Reference" "#PWR026" (at 17.78 116.84 0)
+    (property "Reference" "#PWR010" (at 17.78 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 17.78 115.57 0)
@@ -3908,45 +4342,42 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR010") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "74xx:74HC00") (at 24.13 133.35 0) (unit 5)
+  (symbol (lib_id "Device:C") (at 110.49 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid b99e495e-7d45-4b95-b611-ff7c82706678)
-    (property "Reference" "U7" (at 30.48 132.08 0)
+    (uuid b76a344c-bbcc-4075-be14-13436d6a34b7)
+    (property "Reference" "C1" (at 114.3 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "74HC00" (at 30.48 134.62 0)
+    (property "Value" "0.1u" (at 114.3 100.33 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 24.13 133.35 0)
+    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" (at 111.4552 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "http://www.ti.com/lit/gpn/sn74hc00" (at 24.13 133.35 0)
+    (property "Datasheet" "~" (at 110.49 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 263cb5aa-a50d-4ecf-b879-605ad45d8e97))
-    (pin "2" (uuid 74f0dc6d-098d-4b39-bf4e-f6cf0d043105))
-    (pin "3" (uuid 5d1c52f0-cd00-4d9e-a805-7e1f1e2163b1))
-    (pin "4" (uuid f29a9405-9ab3-4f77-80bd-e60885111e1e))
-    (pin "5" (uuid 64dd0e13-7f8e-458b-9685-ce67522fca1b))
-    (pin "6" (uuid f748124c-0089-44b5-8831-fd45058bd73f))
-    (pin "10" (uuid 375ed589-eb1e-4f80-9615-e462a0611e94))
-    (pin "8" (uuid 98dbee98-6e00-496b-8f6d-359b15ee75d1))
-    (pin "9" (uuid 64804bfa-9409-4589-8cfc-c7f8658191a2))
-    (pin "11" (uuid 86e29b87-831b-47fe-8ea9-03ab3fd3ceac))
-    (pin "12" (uuid f1682ba4-7bfd-4f55-9b4d-698106ae77c2))
-    (pin "13" (uuid be2b8ebf-7c1d-4377-bded-18908063d60d))
-    (pin "14" (uuid d7f551fd-f9d0-46ae-b52b-f17db8cd7830))
-    (pin "7" (uuid 02036da7-854d-419c-bbf8-90c8d75f1cfd))
+    (pin "1" (uuid 3d92916d-1888-489c-b225-45f0595da71d))
+    (pin "2" (uuid fd7bf2d0-1fcf-43c5-af03-2cf3ff22eaf6))
     (instances
       (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
+          (reference "C1") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "C22") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "C29") (unit 1)
+        )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "U7") (unit 5)
+          (reference "C30") (unit 1)
         )
       )
     )
@@ -3955,7 +4386,7 @@
   (symbol (lib_id "power:GND") (at 77.47 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c2f2f0ae-28c2-4d9f-bfad-c2e726fc36c7)
-    (property "Reference" "#PWR012" (at 77.47 158.75 0)
+    (property "Reference" "#PWR014" (at 77.47 158.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 77.47 157.48 0)
@@ -3971,7 +4402,7 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR012") (unit 1)
+          (reference "#PWR014") (unit 1)
         )
       )
     )
@@ -3980,7 +4411,7 @@
   (symbol (lib_id "power:GND") (at 91.44 200.66 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d33dca25-0062-4b44-8297-f28da26b2d38)
-    (property "Reference" "#PWR09" (at 91.44 207.01 0)
+    (property "Reference" "#PWR018" (at 91.44 207.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 87.63 201.93 0)
@@ -3996,7 +4427,42 @@
     (instances
       (project "6502gpu"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR018") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C") (at 180.34 151.13 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d4d02b3a-e4d8-41bb-88de-61c44498523a)
+    (property "Reference" "C1" (at 184.15 149.86 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "0.1u" (at 184.15 152.4 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" (at 181.3052 154.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 180.34 151.13 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 087a46a0-b390-46f4-8bc3-0c18e1a62942))
+    (pin "2" (uuid 9929d038-6bf6-4381-9a17-ae1393e77bef))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
+          (reference "C1") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "C22") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "C29") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "C32") (unit 1)
         )
       )
     )
@@ -4024,32 +4490,7 @@
           (reference "#PWR02") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR02") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:GND") (at 24.13 146.05 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid e95e9de7-361f-4373-b63d-8c0f917260f1)
-    (property "Reference" "#PWR020" (at 24.13 152.4 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 24.13 151.13 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 24.13 146.05 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 24.13 146.05 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 67390e6a-ec7c-4640-a5c6-d6dcd67a0576))
-    (instances
-      (project "6502gpu"
-        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR023") (unit 1)
         )
       )
     )
@@ -4077,7 +4518,41 @@
           (reference "#PWR03") (unit 1)
         )
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR027") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+5V") (at 120.65 187.96 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f12f6729-7ec9-4321-a093-a97d9029c24a)
+    (property "Reference" "#PWR02" (at 120.65 191.77 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (at 120.65 182.88 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 120.65 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 120.65 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 358d74b4-7a11-40f4-aafd-a55c87531743))
+    (instances
+      (project "6502gpu"
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc"
+          (reference "#PWR02") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/197218df-cdff-410d-b6f3-6b97d6088888"
+          (reference "#PWR097") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
+          (reference "#PWR059") (unit 1)
+        )
+        (path "/b1d8dca2-c863-4452-b293-53802be895cc/46d5dbc7-9792-41a8-8504-515c0517a22c"
+          (reference "#PWR093") (unit 1)
         )
       )
     )
