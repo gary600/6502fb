@@ -20,11 +20,19 @@ module FbTest;
   assign AddrSel = AddrPhys[15];
 
   initial begin
-    $dumpfile("vga.vcd");
-    $dumpvars(0, fb);
+    string file;
+    if ($test$plusargs("DUMP")) begin
+      if ($value$plusargs("DUMP=%s", file))
+        $dumpfile(file);
+      else
+        $dumpfile("vga.vcd");
+      
+      $dumpvars(0, fb);
+    end
 
     @(negedge fb.VBlank);
-    #20000000 $finish;
+    @(negedge fb.VBlank);
+    #1ms $finish;
   end
 
 endmodule

@@ -1,21 +1,27 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Thu Nov  2 04:33:34 2023
+[*] Sat Nov 04 01:37:40 2023
 [*]
-[dumpfile] "/mnt/c/Users/Gary/Documents/6502gpu/sim/vga.vcd"
-[dumpfile_mtime] "Thu Nov  2 04:30:26 2023"
-[dumpfile_size] 66762188
-[savefile] "/mnt/c/Users/Gary/Documents/6502gpu/sim/waves.gtkw"
-[timestart] 16681460000
-[size] 1910 1024
+[dumpfile] "C:\Users\Gary\Documents\6502gpu\sim\vga.vcd"
+[dumpfile_mtime] "Sat Nov 04 01:36:24 2023"
+[dumpfile_size] 247336808
+[savefile] "C:\Users\Gary\Documents\6502gpu\sim\waves.gtkw"
+[timestart] 0
+[size] 1920 1003
 [pos] -1 -1
-*-18.000000 16682380140 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-24.000000 2620000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] FbTest.
 [treeopen] FbTest.fb.
+[treeopen] FbTest.fb.counters.ccol0.
+[treeopen] FbTest.fb.memory.
 [sst_width] 276
 [signals_width] 208
 [sst_expanded] 1
-[sst_vpaned_height] 313
+[sst_vpaned_height] 306
+@200
+-Counters
+@28
+FbTest.fb.counters.PxClock
 @24
 FbTest.fb.Col[9:0]
 FbTest.fb.Row[9:0]
@@ -23,7 +29,47 @@ FbTest.fb.Row[9:0]
 FbTest.fb.HBlank
 FbTest.fb.HSync
 FbTest.fb.VBlank
-@29
 FbTest.fb.VSync
+@200
+-
+-Buffer 0
+@22
+FbTest.fb.memory.buffer_a.A[14:0]
+FbTest.fb.memory.buffer_a.IO[7:0]
+@200
+-
+-Buffer 1
+@22
+FbTest.fb.memory.buffer_b.A[14:0]
+FbTest.fb.memory.buffer_b.IO[7:0]
+@200
+-
+-Outputs
+@22
+FbTest.fb.PixelOut[7:0]
+@28
+FbTest.fb.Red[2:0]
+FbTest.fb.Green[2:0]
+FbTest.fb.Blue[1:0]
+@200
+-
+-6502 Interface
+@22
+FbTest.fb.AddrPhys[15:0]
+FbTest.fb.AddrCPU[14:0]
+@200
+-
+-Config Values
+@22
+FbTest.fb.config_reg.state[7:0]
+@29
+FbTest.fb.config_reg.BufSel
+@28
+FbTest.fb.config_reg.BankSel
+FbTest.fb.config_reg.NmiEnable
+FbTest.fb.config_reg.BlankWhite
+FbTest.fb.config_reg.BlankBlack
+@200
+-
 [pattern_trace] 1
 [pattern_trace] 0
