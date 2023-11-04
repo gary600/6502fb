@@ -1,9 +1,12 @@
 SIM ?= iverilog
-SIM_OPTS += -g2005-sv -Ttyp
+SIM_OPTS += -g2005-sv
+ifdef TIMING
+SIM_OPTS += -DTIMING -T$(TIMING)
+endif
 
 SV_FILES += $(wildcard *.sv)
 
-.PHONY: all run
+.PHONY: all run clean
 all: sim
 run: vga.vcd
 

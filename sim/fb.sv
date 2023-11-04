@@ -9,10 +9,13 @@ module Fb (
   input logic Phi2, // PHI2
   input logic RW_n,  // ???
 
-  output logic HSync,
-  output logic VSync,
+	output logic [2:0] Red, Green,
+	output logic [1:0] Blue,
 
-  input logic AddrSel // assign to AddrPhys[14] or [15]
+  output logic HSync_n,
+  output logic VSync_n,
+
+  input logic AddrSel // assign to AddrPhys[14] or [15] to select address
 );
 
   logic BankSel, BufSel;
@@ -63,7 +66,7 @@ module Fb (
 
   Counters counters(
     .Col, .Row,
-    .HBlank, .VBlank, .HSync, .VSync
+    .HBlank, .VBlank, .HSync_n, .VSync_n
   );
 
   logic [7:0] PixelOut;
@@ -76,8 +79,6 @@ module Fb (
     .PixelOut
   );
 
-	logic [2:0] Red, Green;
-	logic [1:0] Blue;
 	Dac dac(
 		.PixelOut,
 		.BlankBlack_n, .BlankWhite,
@@ -121,9 +122,9 @@ endmodule
 
 module Counters (
   output logic [9:0] Col,
-  output logic [9:0] Row = '0,
+  output logic [9:0] Row,
 
-  output logic HSync, VSync,
+  output logic HSync_n, VSync_n,
   output logic HBlank, VBlank
 );
 
@@ -151,7 +152,7 @@ module Counters (
   logic HSyncClear_n;
   nand8_ahc30 u19a(HSyncClear_n, {Col[0], Col[1], Col[2], Col[3], Col[5], Col[6], Col[7], Col[9]});
 
-  jknff_hc109 u11b(.Q(HSync), .J(HSyncSet), .K_n(HSyncClear_n), .C(PxClock), .Q_n());
+  jknff_hc109 u11b(.Q_n(HSync_n), .J(HSyncSet), .K_n(HSyncClear_n), .C(PxClock), .Q());
 
   not_lv04 u10a(Col5_n, Col[5]);
   not_lv04 u10b(Col6_n, Col[6]);
@@ -183,22 +184,23 @@ module Counters (
   logic VSyncClear_n;
   nand8_ahc30 u27a(VSyncClear_n, {HBlankClear, Row[0], Row[1], Row[3], Row[5], Row[6], Row[7], Row[8]});
 
-  jknff_hc109 u24b(.Q(VSync), .J(VSyncSet), .K_n(VSyncClear_n), .C(PxClock), .Q_n());
+  jknff_hc109 u24b(.Q_n(VSync_n), .J(VSyncSet), .K_n(VSyncClear_n), .C(PxClock), .Q());
 
   /* Column Counter */
-  logic tc0, tc1;
-  counter4_lv163 ccol0(.D(4'h0), .Q(Col[3:0]), .TC(tc0), .PE_n(1'b1), .CEP(1'b1), .CET(1'b1), .CP(PxClock), .MR_n(HBlankClear_n));
-  counter4_lv163 ccol1(.D(4'h0), .Q(Col[7:4]), .TC(tc1), .PE_n(1'b1), .CEP(tc0), .CET(1'b1), .CP(PxClock), .MR_n(HBlankClear_n));
+  logic ctc0, ctc1;
   logic [3:0] ccol2_out;
-  counter4_lv163 ccol2(.D(4'h0), .Q(ccol2_out), .TC(), .PE_n(1'b1), .CEP(tc0), .CET(tc1), .CP(PxClock), .MR_n(HBlankClear_n));
+  counter4_lv163 ccol0(.D(4'h0), .Q(Col[3:0]), .TC(ctc0), .PE_n(1'b1), .CEP(1'b1), .CET(1'b1), .CP(PxClock), .MR_n(HBlankClear_n));
+  counter4_lv163 ccol1(.D(4'h0), .Q(Col[7:4]), .TC(ctc1), .PE_n(1'b1), .CEP(ctc0), .CET(1'b1), .CP(PxClock), .MR_n(HBlankClear_n));
+  counter4_lv163 ccol2(.D(4'h0), .Q(ccol2_out), .TC(), .PE_n(1'b1), .CEP(ctc0), .CET(ctc1), .CP(PxClock), .MR_n(HBlankClear_n));
   assign Col[9:8] = ccol2_out[1:0];
   
   /* Row Counter */
-  always_ff @(posedge PxClock)
-    if (~VBlankClear_n)
-      Row <= 10'd0;
-    else if (HBlankClear)
-      Row <= Row + 10'd1;
+  logic rtc0, rtc1;
+  logic [3:0] rcol2_out;
+  counter4_lv163 rcol0(.D(4'h0), .Q(Row[3:0]), .TC(rtc0), .PE_n(1'b1), .CEP(1'b1), .CET(HBlankClear), .CP(PxClock), .MR_n(VBlankClear_n));
+  counter4_lv163 rcol1(.D(4'h0), .Q(Row[7:4]), .TC(rtc1), .PE_n(1'b1), .CEP(rtc0), .CET(1'b1), .CP(PxClock), .MR_n(VBlankClear_n));
+  counter4_lv163 rcol2(.D(4'h0), .Q(rcol2_out), .TC(), .PE_n(1'b1), .CEP(rtc0), .CET(rtc1), .CP(PxClock), .MR_n(VBlankClear_n));
+  assign Row[9:8] = rcol2_out[1:0];
 
 endmodule
 

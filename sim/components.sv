@@ -2,8 +2,6 @@
 
 `timescale 1ns/10ps
 
-// `define TIMING
-
 // All timings as specified at Vdd = 4.5V or 5V, worst listed Cl
 
 module xor_hc86 (
@@ -153,22 +151,42 @@ module jknff_hc109 #(parameter init = 0) (
 	output logic Q = init, Q_n
 );
 
+`ifdef TIMING
+  localparam clk2q = (0:15:35);
+`endif
+
+  logic [1:0] op;
+  assign op = {J, K_n};
+
 	always_ff @(posedge C)
-		case ({ J, K_n })
-			2'b00: Q <= 1'b0;
-			2'b10: Q <= ~Q;
+		case (op)
+			2'b00: Q <=
+`ifdef TIMING
+        #clk2q
+`endif
+        1'b0;
+			2'b10: Q <=
+`ifdef TIMING
+        #clk2q
+`endif
+        ~Q;
 			2'b01: Q <= Q;
-			2'b11: Q <= 1'b1;
+			2'b11: Q <=
+`ifdef TIMING
+        #clk2q
+`endif
+        1'b1;
 		endcase
 
 	assign Q_n = ~Q;
 
-`ifdef TIMING
-  // TODO: setup and hold
-  specify
-    (posedge C *> Q +: J, K_n) = (0:15:35);
-  endspecify
-`endif
+// `ifdef TIMING
+//   // TODO: setup and hold
+//   specify
+//     pulsestyle_ondetect C;
+//     if (op == 2'b01)(posedge C => (Q +: J, K_n)) = (0:15:35);
+//   endspecify
+// `endif
 
 endmodule
 
@@ -190,13 +208,12 @@ module dff8_hc377 #(parameter logic [7:0] init = '0) (
 );
 
   always_ff @(posedge clk)
-    if (~en_n) q <= d;
-
+    if (~en_n) q <=
 `ifdef TIMING
-  specify
-    (posedge clk *> d) = (0:15:32);
-  endspecify
+      #(0:15:32)
 `endif
+      d;
+
 endmodule
 
 module or_lv32 (
@@ -216,19 +233,26 @@ module demux_cbt16390 #(parameter WIDTH = 16) (
 	output tri [WIDTH-1:0] B2,
 	input logic OE1_n, OE2_n
 );
+`ifdef TIMING
+  parameter oe_delay = (1.3:5.9:5.9);
+`endif
+
+  logic oe1_n_delayed, oe2_n_delayed;
+
+  assign
+`ifdef TIMING
+    #oe_delay
+`endif
+    oe1_n_delayed = OE1_n;
+
+  assign
+`ifdef TIMING
+    #oe_delay
+`endif
+    oe2_n_delayed = OE2_n;
+
 	assign B1 = (~OE1_n) ? A : 'bz;
 	assign B2 = (~OE2_n) ? A : 'bz;
-
-`ifdef TIMING
-  specify
-    // T_en
-    (negedge OE1_n *> B1 +: A) = (1.3:5.9:5.9); // No Typ
-    (negedge OE2_n *> B2 +: A) = (1.3:5.9:5.9); // No Typ
-    // T_dis
-    (posedge OE1_n *> B1 +: A) = (1.3:5.9:5.9); // No Typ
-    (posedge OE2_n *> B2 +: A) = (1.3:5.9:5.9); // No Typ
-  endspecify
-`endif
 
 endmodule
 
@@ -268,6 +292,10 @@ module sram_as7c256 (
       contents[A] = IO;
   end
 
-  assign IO = (~CS_n && WE_n && ~OE_n) ? contents[A] : 'bz;
+  assign
+`ifdef TIMING
+    #(0:10:10)
+`endif
+    IO = (~CS_n && WE_n && ~OE_n) ? contents[A] : 'bz;
 
 endmodule

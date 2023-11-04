@@ -10,8 +10,11 @@ module FbTest;
 	logic Phi2;
 	logic RW_n;
 
-	logic HSync;
-	logic VSync;
+  logic [2:0] Red, Green;
+  logic [1:0] Blue;
+  
+	logic HSync_n;
+	logic VSync_n;
 
 	logic AddrSel;
 
