@@ -6,8 +6,9 @@ module Fb (
   input logic [15:0] AddrPhys,  // CPU address bus
   input logic [7:0] DataIn,    // CPU data bus
 
-  input logic Phi2, // PHI2
-  input logic RW_n,  // ???
+  input logic Phi2,
+  input logic RW_n,
+  output logic NMI_n,
 
 	output logic [2:0] Red, Green,
 	output logic [1:0] Blue,
@@ -45,7 +46,6 @@ module Fb (
   logic VBlank, HBlank;
 
   logic NmiEnable;
-  logic NMI_n;
   nand_hc00 u32a(NMI_n, NmiEnable, VBlank);
 
   logic BlankBlack_n, BlankWhite;
@@ -131,6 +131,7 @@ module Counters (
   logic PxClock;
   initial begin
     PxClock = 1'b0;
+    #20ns; // allow initial propagation before clocking
     forever #19.86ns PxClock = ~PxClock; // 19.86 * 2 == 39.721ns, which is 25.175MHz
   end
 

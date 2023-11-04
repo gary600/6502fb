@@ -78,7 +78,11 @@ module counter4_lv163 #(parameter init = 0) (
   nand g2(cet_nand_cep, CET, CEP);
   
   logic [3:0] q, q_n, d_n;
-  assign Q = ~q_n;
+  assign
+`ifdef TIMING
+    #(0:6.1:10.1)
+`endif
+    Q = ~q_n;
 
   assign d_n[0] = ~(
     (D_n[0] & mr_nor_npe)
@@ -124,14 +128,11 @@ module counter4_lv163 #(parameter init = 0) (
   _counter_dff #(.init(init)) ff2(.D_n(d_n[2]), .CP_neg(~CP), .Q(q[2]), .Q_n(q_n[2]));
   _counter_dff #(.init(init)) ff3(.D_n(d_n[3]), .CP_neg(~CP), .Q(q[3]), .Q_n(q_n[3]));
 
-  and g3(TC, CET, q[0], q[1], q[2], q[3]);
-
-// `ifdef TIMING
-//   specify
-//     (posedge C *> Q) = (0:6.1:10.1);
-//     (posedge C *> RCO) = (0:6.6:10.1);
-//   endspecify
-// `endif
+  and
+`ifdef TIMING
+    #(0:6.6:10.1)
+`endif
+    g3(TC, CET, q[0], q[1], q[2], q[3]);
 
 endmodule
 
@@ -179,14 +180,6 @@ module jknff_hc109 #(parameter init = 0) (
 		endcase
 
 	assign Q_n = ~Q;
-
-// `ifdef TIMING
-//   // TODO: setup and hold
-//   specify
-//     pulsestyle_ondetect C;
-//     if (op == 2'b01)(posedge C => (Q +: J, K_n)) = (0:15:35);
-//   endspecify
-// `endif
 
 endmodule
 
@@ -251,8 +244,8 @@ module demux_cbt16390 #(parameter WIDTH = 16) (
 `endif
     oe2_n_delayed = OE2_n;
 
-	assign B1 = (~OE1_n) ? A : 'bz;
-	assign B2 = (~OE2_n) ? A : 'bz;
+	assign B1 = (~oe1_n_delayed) ? A : 'bz;
+	assign B2 = (~oe2_n_delayed) ? A : 'bz;
 
 endmodule
 
@@ -281,11 +274,21 @@ module sram_as7c256 (
   input logic WE_n
 );
 
-  localparam BYTES = 32768;
+  localparam BYTES = 32'd32768;
 
   logic [7:0] contents [BYTES];
 
-  initial for (int i = 0; i < BYTES; i++) contents[i] = i[7:0];
+  // Initialize memory to contain a test pattern in the topleft corner
+  initial begin
+    for (int i = 0; i < BYTES; i++) contents[i] = '0;
+
+    for (int red = 0; red < 32'b1000; red++)
+      for (int green = 0; green < 32'b1000; green++)
+        for (int blue = 0; blue < 32'b100; blue++)
+          // 7 bit row, 8 bit col
+          contents[{4'b0, green[2:0], 3'b0, red[2:0], blue[1:0]}] =
+            {red[2:0], green[2:0], blue[1:0]};
+  end
 
   always_latch begin
     if (~CS_n && ~WE_n)

@@ -2544,6 +2544,10 @@
     (uuid fbac5acb-8b38-4290-9cbc-5827d00c8b81)
   )
 
+  (text "Any column offset 160 writes to config reg" (at 93.98 73.66 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 0693f057-969f-4907-acbd-88e6e22e07d9)
+  )
   (text "Green" (at 177.8 124.46 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 0c7bdf90-b1b3-400c-b56a-e6a3bf7c1d30)

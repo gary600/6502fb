@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Sat Nov 04 03:12:41 2023
+[*] Sat Nov 04 18:06:07 2023
 [*]
 [dumpfile] "C:\Users\Gary\Documents\6502gpu\sim\vga.vcd"
-[dumpfile_mtime] "Sat Nov 04 03:09:21 2023"
-[dumpfile_size] 372344979
+[dumpfile_mtime] "Sat Nov 04 18:03:14 2023"
+[dumpfile_size] 98896363
 [savefile] "C:\Users\Gary\Documents\6502gpu\sim\waves.gtkw"
 [timestart] 0
 [size] 1920 1003
-[pos] -27 -24
-*-25.000000 2620000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-28.000000 127124240 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] FbTest.
 [treeopen] FbTest.fb.
 [treeopen] FbTest.fb.counters.ccol0.
@@ -29,8 +29,21 @@ FbTest.fb.Row[9:0]
 FbTest.fb.HBlank
 FbTest.fb.HSync_n
 FbTest.fb.VBlank
-@29
 FbTest.fb.VSync_n
+@200
+-
+-Sync Set/Clear
+@28
+FbTest.fb.counters.HBlankSet_n
+FbTest.fb.counters.HBlankClear
+FbTest.fb.counters.HSyncSet
+FbTest.fb.counters.HSyncClear_n
+FbTest.fb.counters.VBlankSet
+@29
+FbTest.fb.counters.VBlankClear_n
+@28
+FbTest.fb.counters.VSyncSet
+FbTest.fb.counters.VSyncClear_n
 @200
 -
 -Buffer 0
