@@ -3449,7 +3449,7 @@
     (property "Value" "DE15_Receptacle_HighDensity" (at 193.04 109.22 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "footprints:CONN_L77HDE15SD1CH4FVGA_AMP" (at 168.91 119.38 0)
+    (property "Footprint" "Connector_Dsub:DSUB-15-HD_Female_Horizontal_P2.29x1.98mm_EdgePinOffset8.35mm_Housed_MountingHolesOffset10.89mm" (at 168.91 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" " ~" (at 168.91 119.38 0)
