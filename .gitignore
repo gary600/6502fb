@@ -4,6 +4,7 @@
 *.kicad_sch-bak
 6502gpu-backups/
 _autosave-*
+fp-info-cache
 
 # BOM / export files
 6502gpu.csv
