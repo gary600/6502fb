@@ -6,9 +6,11 @@
 _autosave-*
 fp-info-cache
 
-# BOM / export files
+# Export files
 6502gpu.csv
 6502gpu.xml
+
+out/
 
 # sim outputs
 sim/sim
