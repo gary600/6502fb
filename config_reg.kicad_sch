@@ -432,7 +432,7 @@
     )
     (pin "1" (uuid 5e9262be-ea69-43a6-8e9e-f549d91d831a))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc"
           (reference "#PWR02") (unit 1)
         )
@@ -464,7 +464,7 @@
     (pin "1" (uuid c3402784-2c29-4055-82c5-18dfba87b7d8))
     (pin "2" (uuid 7969912f-e81e-40c3-982b-9dd40279ad48))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/7de9712f-7078-4526-af23-f00b29ea7b26"
           (reference "C1") (unit 1)
         )
@@ -511,7 +511,7 @@
     (pin "8" (uuid d23af2ec-cabb-4a14-9c5b-3448e4ec9923))
     (pin "9" (uuid 8f76c1d8-2158-4182-a571-35115583d5cb))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
           (reference "U29") (unit 1)
         )
@@ -536,7 +536,7 @@
     )
     (pin "1" (uuid e0f38899-d466-4208-a062-7bc3666c107d))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc"
           (reference "#PWR02") (unit 1)
         )
@@ -567,7 +567,7 @@
     )
     (pin "1" (uuid 640acbe4-046f-4b15-ad53-29b8a4d88024))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc"
           (reference "#PWR03") (unit 1)
         )
@@ -598,7 +598,7 @@
     )
     (pin "1" (uuid c9790d00-7900-47a5-bbae-15c8feaeafb0))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc/25d51073-b007-4d3a-a895-244d96d772f9"
           (reference "#PWR0109") (unit 1)
         )
@@ -623,7 +623,7 @@
     )
     (pin "1" (uuid 45ca8713-48d7-44b1-80cc-3e392bb7252f))
     (instances
-      (project "6502gpu"
+      (project "6502fb"
         (path "/b1d8dca2-c863-4452-b293-53802be895cc"
           (reference "#PWR03") (unit 1)
         )

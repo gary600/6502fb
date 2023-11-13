@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
 [*] Sat Nov 04 18:06:07 2023
 [*]
-[dumpfile] "C:\Users\Gary\Documents\6502gpu\sim\vga.vcd"
+[dumpfile] "C:\Users\Gary\Documents\6502fb\sim\vga.vcd"
 [dumpfile_mtime] "Sat Nov 04 18:03:14 2023"
 [dumpfile_size] 98896363
-[savefile] "C:\Users\Gary\Documents\6502gpu\sim\waves.gtkw"
+[savefile] "C:\Users\Gary\Documents\6502fb\sim\waves.gtkw"
 [timestart] 0
 [size] 1920 1003
 [pos] -1 -1

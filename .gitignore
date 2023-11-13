@@ -2,13 +2,13 @@
 *.bak
 *.lck
 *.kicad_sch-bak
-6502gpu-backups/
+6502fb-backups/
 _autosave-*
 fp-info-cache
 
 # Export files
-6502gpu.csv
-6502gpu.xml
+6502fb.csv
+6502fb.xml
 
 out/
 
