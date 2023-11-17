@@ -11,7 +11,3 @@ fp-info-cache
 6502fb.xml
 
 out/
-
-# sim outputs
-sim/sim
-sim/vga.vcd
