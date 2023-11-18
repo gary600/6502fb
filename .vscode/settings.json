@@ -1,4 +1,7 @@
 {
     "rust-analyzer.showUnlinkedFileNotification": false,
-    "rust-analyzer.checkOnSave.command": "clippy"
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "files.associations": {
+        "*.S": "dasm"
+    }
 }

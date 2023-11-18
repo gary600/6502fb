@@ -33,6 +33,18 @@ impl Ctx {
         (self.fb_config & 0b00000001) as usize
     }
 
+    fn get_nmienable(&self) -> bool {
+        (self.fb_config & 0b00000100) != 0
+    }
+
+    fn get_blank_black(&self) -> bool {
+        (self.fb_config & 0b00001000) != 0
+    }
+
+    fn get_blank_white(&self) -> bool {
+        (self.fb_config & 0b00010000) != 0
+    }
+
     fn get_vram_address(&self, addr: u16) -> usize {
         (self.get_buf() << 15) | (self.get_bank() << 14) | (addr as usize)
     }
@@ -52,8 +64,9 @@ impl CpuContext for Ctx {
 
     fn write(&mut self, addr: u16, val: u8) {
         // println!("write: ${addr:04x} <- ${val:02x}");
-        if addr == 0x08a0 {
+        if addr == 0x80a0 {
             self.fb_config = val;
+            println!("wrote to fb config: {val:08b}");
         }
         match addr {
             0x0000..=0x7FFF => self.ram[addr as usize] = val,
@@ -72,7 +85,7 @@ impl Default for Ctx {
 
 fn create_fb_thread(ctx: Arc<Mutex<Ctx>>) -> Receiver<()> {
     let (tx_nmi, rx_nmi) = channel::<()>();
-    thread::spawn(move ||{
+    thread::spawn(move || {
         let mut window = Window::new(
             "6502 Framebuffer Emulator",
             256, 256,
@@ -86,19 +99,28 @@ fn create_fb_thread(ctx: Arc<Mutex<Ctx>>) -> Receiver<()> {
         while window.is_open() {
             let ctx = ctx.lock().unwrap();
             // println!("frame");
-            window.update_with_buffer(
-                &ctx.vram.map(|x| {
-                    let x = x as u32;
-                    ((x & 0b11100000) << 16) |
-                    ((x & 0b00011100) << (8 + 3)) |
-                    ((x & 0b00000011) << 6)
-                }),
-                256,
-                256
-            ).unwrap();
+            if ctx.get_blank_black() {
+                window.update_with_buffer(&[0u32; 256*256], 256, 256).unwrap();
+            }
+            else if ctx.get_blank_white() {
+                window.update_with_buffer(&[0x00FFFFFFu32; 256*256], 256, 256).unwrap();
+            }
+            else {
+                window.update_with_buffer(
+                    &ctx.vram.map(|x| {
+                        let x = x as u32;
+                        ((x & 0b11100000) << 16) |
+                        ((x & 0b00011100) << (8 + 3)) |
+                        ((x & 0b00000011) << 6)
+                    }),
+                    256,
+                    256
+                ).unwrap();
+            }
+            let nmi = ctx.get_nmienable();
             drop(ctx);
             thread::sleep(Duration::from_micros(15253));
-            tx_nmi.send(()).unwrap();
+            if nmi {tx_nmi.send(()).unwrap();}
             thread::sleep(Duration::from_micros(1400));
         }
 
@@ -112,7 +134,7 @@ fn main() {
     let prog = std::fs::read(std::env::args().nth(1).unwrap()).unwrap();
     let mut eeprom = [0u8; 0x2000];
     eeprom.copy_from_slice(&prog[2..]);
-    eeprom[0x1FF0] = 0x4C;
+    // eeprom[0x1FF0] = 0x4C;
     let arch = create_arch::<Ctx>();
     let ctx = Arc::new(Mutex::new(Ctx::new(eeprom)));
     let mut cpu = CPU::new();
@@ -128,6 +150,8 @@ fn main() {
             // println!("NMI!");
         }
         drop(ctx);
+
+        // if cycle % 1000 == 0 {println!("cycle");}
         thread::sleep(Duration::from_micros(1));
         // println!("cycle {cycle}");
         // cycle += 1;
