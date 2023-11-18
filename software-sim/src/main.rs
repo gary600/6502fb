@@ -51,6 +51,7 @@ impl CpuContext for Ctx {
     fn read(&mut self, addr: u16) -> u8 { self.read_immut(addr) }
 
     fn write(&mut self, addr: u16, val: u8) {
+        // println!("write: ${addr:04x} <- ${val:02x}");
         if addr == 0x08a0 {
             self.fb_config = val;
         }
@@ -83,14 +84,14 @@ fn create_fb_thread(ctx: Arc<Mutex<Ctx>>) -> Receiver<()> {
         
         println!("Created window");
         while window.is_open() {
-            // TODO: Draw screen
             let ctx = ctx.lock().unwrap();
+            // println!("frame");
             window.update_with_buffer(
                 &ctx.vram.map(|x| {
                     let x = x as u32;
-                    (x & 0b11100000 << 16) |
-                    (x & 0b00011100 << (8 + 3)) |
-                    (x & 0b00000011 << 6)
+                    ((x & 0b11100000) << 16) |
+                    ((x & 0b00011100) << (8 + 3)) |
+                    ((x & 0b00000011) << 6)
                 }),
                 256,
                 256
@@ -99,7 +100,6 @@ fn create_fb_thread(ctx: Arc<Mutex<Ctx>>) -> Receiver<()> {
             thread::sleep(Duration::from_micros(15253));
             tx_nmi.send(()).unwrap();
             thread::sleep(Duration::from_micros(1400));
-            window.update();
         }
 
         println!("FB thread shutting down");
@@ -127,8 +127,8 @@ fn main() {
             cpu.trigger_nmi(&mut *ctx);
             // println!("NMI!");
         }
-        thread::sleep(Duration::from_micros(1));
         drop(ctx);
+        thread::sleep(Duration::from_micros(1));
         // println!("cycle {cycle}");
         // cycle += 1;
     }
