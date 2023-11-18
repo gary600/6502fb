@@ -6,13 +6,27 @@ use cpu::{CpuContext, create_arch, CPU};
 
 use minifb::{Window, WindowOptions, Scale};
 
+use bitfield::bitfield;
+
+bitfield! {
+    pub struct FbConfig(u8);
+    impl Debug;
+
+    pub buf_sel, set_buf_sel: 0;
+    pub bank_sel, set_bank_sel: 1;
+    pub nmi_enable, set_nmi_enable: 2;
+    pub blank_white, set_blank_white: 3;
+    pub blank_black, set_blank_black: 4;
+    pub _reserved, _: 7, 5;
+}
+
 pub struct Ctx {
     pub ram: [u8; 0x8000], // 32k
     pub eeprom: [u8; 0x2000], // 8k
 
     // Framebuffer
     pub vram: [u8; 0x10000], // 64k
-    pub fb_config: u8,
+    pub fb_config: FbConfig,
 }
 
 impl Ctx {
@@ -21,28 +35,28 @@ impl Ctx {
             ram: [0u8; 0x8000],
             eeprom,
             vram: [0u8; 0x10000],
-            fb_config: 0u8
+            fb_config: FbConfig(0),
         }
     }
 
     fn get_bank(&self) -> usize {
-        ((self.fb_config & 0b00000010) >> 1) as usize
+        self.fb_config.bank_sel() as usize
     }
 
     fn get_buf(&self) -> usize {
-        (self.fb_config & 0b00000001) as usize
+        self.fb_config.buf_sel() as usize
     }
 
     fn get_nmienable(&self) -> bool {
-        (self.fb_config & 0b00000100) != 0
+        self.fb_config.nmi_enable()
     }
 
     fn get_blank_black(&self) -> bool {
-        (self.fb_config & 0b00001000) != 0
+        self.fb_config.blank_black()
     }
 
     fn get_blank_white(&self) -> bool {
-        (self.fb_config & 0b00010000) != 0
+        self.fb_config.blank_white()
     }
 
     fn get_vram_address(&self, addr: u16) -> usize {
@@ -65,8 +79,8 @@ impl CpuContext for Ctx {
     fn write(&mut self, addr: u16, val: u8) {
         // println!("write: ${addr:04x} <- ${val:02x}");
         if addr == 0x80a0 {
-            self.fb_config = val;
-            println!("wrote to fb config: {val:08b}");
+            self.fb_config.0 = val;
+            println!("wrote to fb config: {:8b} {:?}", self.fb_config.0, self.fb_config);
         }
         match addr {
             0x0000..=0x7FFF => self.ram[addr as usize] = val,
