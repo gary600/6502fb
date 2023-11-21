@@ -2,7 +2,7 @@ mod cpu;
 
 use std::{thread, sync::{mpsc::{channel, Receiver, Sender}, Mutex, Arc}, time::Duration, process::exit};
 
-use cpu::{CpuContext, create_arch, CPU};
+use cpu::{CpuContext, create_arch, Cpu};
 
 use minifb::{Window, WindowOptions, Scale};
 
@@ -60,7 +60,7 @@ impl Ctx {
     }
 
     fn get_vram_address(&self, addr: u16) -> usize {
-        (self.get_buf() << 15) | (self.get_bank() << 14) | (addr as usize)
+        (self.get_buf() << 15) | (self.get_bank() << 14) | ((addr & 0x3FFF) as usize)
     }
 }
 
@@ -145,7 +145,7 @@ fn create_cpu_thread(ctx: Arc<Mutex<Ctx>>, rx_nmi: Receiver<()>) {
         // eeprom[0x1FF0] = 0x4C;
         let arch = create_arch::<Ctx>();
 
-        let mut cpu = CPU::new();
+        let mut cpu = Cpu::new();
 
         // let mut cycle = 0u32;
         loop {

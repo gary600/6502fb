@@ -1,0 +1,28 @@
+Modules list:
+-------------
+screen.o:
+    CODE              Offs=000000  Size=0000AE  Align=00001  Fill=0000
+    IVT               Offs=000000  Size=000006  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+CODE                  00E000  00E0AD  0000AE  00001
+IVT                   00FFFA  00FFFF  000006  00001
+
+
+Exports list by name:
+---------------------
+
+
+
+Exports list by value:
+----------------------
+
+
+
+Imports list:
+-------------
+

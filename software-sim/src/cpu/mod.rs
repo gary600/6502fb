@@ -20,7 +20,7 @@ pub enum State {
     Run,
 }
 
-pub struct CPU {
+pub struct Cpu {
     pub status: u8,
     pub pc: u16,
     pub acc: u8,
@@ -31,9 +31,9 @@ pub struct CPU {
     pub cycle: u64,
 }
 
-impl CPU {
-    pub fn new() -> CPU {
-        CPU {
+impl Cpu {
+    pub fn new() -> Cpu {
+        Cpu {
             status: 0,
             pc: 0xFFFC,
             acc: 0,
@@ -225,8 +225,8 @@ impl CPU {
     }
 }
 
-impl Default for CPU {
-    fn default() -> CPU {
-        CPU::new()
+impl Default for Cpu {
+    fn default() -> Cpu {
+        Cpu::new()
     }
 }

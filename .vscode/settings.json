@@ -2,6 +2,9 @@
     "rust-analyzer.showUnlinkedFileNotification": false,
     "rust-analyzer.checkOnSave.command": "clippy",
     "files.associations": {
-        "*.S": "dasm"
+        "*.S": "ca65"
+    },
+    "[ca65]": {
+        "editor.tabSize": 4
     }
 }
