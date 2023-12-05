@@ -623,7 +623,7 @@
     (property "Value" "74HC377" (at 126.6541 80.01 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" (at 124.46 97.79 0)
+    (property "Footprint" "custom:SOIC-20_5.3x12.6mm_P1.27mm" (at 124.46 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74LS377" (at 124.46 97.79 0)
