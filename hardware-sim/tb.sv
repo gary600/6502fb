@@ -23,16 +23,28 @@ module FbTest;
 
   assign AddrSel = AddrPhys[15]; // VRAM: 0x8000->0xBFFF
 
+  logic [11:0] dump;
+  assign dump = {
+    fb.counters.PxClock, ~HSync_n, ~VSync_n,
+    Red, Green, Blue, 1'b0
+  };
+
   initial begin
     string file;
+
     if ($test$plusargs("DUMP")) begin
       if ($value$plusargs("DUMP=%s", file))
         $dumpfile(file);
       else
-        $dumpfile("vga.vcd");
-      
-      $dumpvars(0, fb);
+        $dumpfile("vga.vcd");    
     end
+    
+    if ($test$plusargs("SMALLDUMP")) begin
+      $dumpvars(0, dump);
+      $display("Small dump specified");
+    end
+    else
+      $dumpvars(0, fb);
 
     @(negedge fb.VBlank);
     @(negedge fb.VBlank);
